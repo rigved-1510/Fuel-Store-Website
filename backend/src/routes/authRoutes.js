@@ -5,6 +5,7 @@ import { verifyToken, isAdmin } from '../middleware/auth.js';
 import {
   signup,
   login,
+  googleLogin,
   getProfile,
   updateProfile,
   changePassword,
@@ -99,6 +100,7 @@ const changePasswordRules = [
 // Public
 router.post('/signup', signupRules, validate, signup);
 router.post('/login', loginRules, validate, login);
+router.post("/google", googleLogin);
 
 // Protected (require valid JWT)
 router.get('/profile', verifyToken, getProfile);

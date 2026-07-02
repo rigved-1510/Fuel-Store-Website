@@ -73,3 +73,19 @@ export async function logoutUser() {
     // Swallow — client-side cleanup always runs regardless
   }
 }
+
+/**
+ * POST /api/auth/google
+ * Returns { user, token } on success.
+ */
+export async function googleLoginUser(credential) {
+  const res = await apiFetch('/auth/google', {
+    method: 'POST',
+    body: JSON.stringify({ credential }),
+  });
+
+  return {
+    user: res.data.user,
+    token: res.data.token,
+  };
+}

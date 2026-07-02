@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import {
   loginUser,
   signupUser,
+  googleLoginUser,
   getProfile,
   updateProfile as apiUpdateProfile,
   changePassword as apiChangePassword,
@@ -58,6 +59,28 @@ export function AuthProvider({ children }) {
       setIsAuthenticated(true);
       localStorage.setItem(USER_KEY, JSON.stringify(loggedInUser));
       localStorage.setItem(TOKEN_KEY, token);
+      return loggedInUser;
+    } catch (err) {
+      setError(err.message);
+      throw err;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const loginWithGoogle = async (credential) => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const { user: loggedInUser, token } = await googleLoginUser(credential);
+
+      setUser(loggedInUser);
+      setIsAuthenticated(true);
+
+      localStorage.setItem(USER_KEY, JSON.stringify(loggedInUser));
+      localStorage.setItem(TOKEN_KEY, token);
+
       return loggedInUser;
     } catch (err) {
       setError(err.message);
@@ -133,6 +156,7 @@ export function AuthProvider({ children }) {
     isLoading,
     error,
     login,
+    loginWithGoogle,
     signup,
     logout,
     updateProfile,

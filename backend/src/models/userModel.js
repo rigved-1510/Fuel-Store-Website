@@ -5,7 +5,7 @@ import pool from '../config/db.js';
  * Never returns password_hash in SELECT queries (except findByEmail for auth).
  */
 
-const SAFE_COLUMNS = 'id, first_name, last_name, email, phone, role, is_verified, created_at, updated_at';
+const SAFE_COLUMNS = 'id, first_name, last_name, email, phone, role, is_verified, google_id, provider, avatar, created_at, updated_at';
 
 export const UserModel = {
   /**
@@ -13,7 +13,7 @@ export const UserModel = {
    */
   async findByEmail(email) {
     const [rows] = await pool.execute(
-      'SELECT id, first_name, last_name, email, password_hash, phone, role, is_verified, created_at FROM users WHERE email = ?',
+      'SELECT id, first_name, last_name, email, password_hash, phone, role, is_verified, google_id, provider, avatar, created_at FROM users WHERE email = ?',
       [email]
     );
     return rows[0] || null;
@@ -22,6 +22,16 @@ export const UserModel = {
   /**
    * Find a user by ID. Does NOT return password_hash.
    */
+  async findByGoogleId(googleId) {
+    const [rows] = await pool.execute(
+      `SELECT ${SAFE_COLUMNS}
+      FROM users
+      WHERE google_id = ?`,
+      [googleId]
+    );
+
+    return rows[0] || null;
+  },
   async findById(id) {
     const [rows] = await pool.execute(
       `SELECT ${SAFE_COLUMNS} FROM users WHERE id = ?`,
@@ -40,10 +50,57 @@ export const UserModel = {
     );
     return result.insertId;
   },
+  async createGoogleUser({
+    firstName,
+    lastName,
+    email,
+    googleId,
+    avatar
+  }) {
+    const [result] = await pool.execute(
+      `
+      INSERT INTO users
+      (
+        first_name,
+        last_name,
+        email,
+        google_id,
+        avatar,
+        provider
+      )
+      VALUES (?, ?, ?, ?, ?, 'google')
+      `,
+      [
+        firstName,
+        lastName,
+        email,
+        googleId,
+        avatar,
+        'google'
+      ]
+    );
+
+    return result.insertId;
+  },
 
   /**
    * Update user profile fields (first_name, last_name, email, phone).
    */
+  async linkGoogleAccount(id, googleId, avatar) {
+    const [result] = await pool.execute(
+      `
+      UPDATE users
+      SET
+        google_id = ?,
+        avatar = ?,
+        provider = 'google'
+      WHERE id = ?
+      `,
+      [googleId, avatar, id]
+    );
+
+    return result.affectedRows > 0;
+  },
   async updateProfile(id, { firstName, lastName, email, phone }) {
     const [result] = await pool.execute(
       'UPDATE users SET first_name = ?, last_name = ?, email = ?, phone = ? WHERE id = ?',

@@ -4,8 +4,11 @@ import { UserModel } from '../models/userModel.js';
 import { AppError } from '../utils/AppError.js';
 import { catchAsync } from '../utils/catchAsync.js';
 import { sendSuccess } from '../utils/apiResponse.js';
+import { OAuth2Client } from 'google-auth-library';
 
 const SALT_ROUNDS = 12;
+
+const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 /**
  * Generate a JWT for a given user.
@@ -29,6 +32,8 @@ function formatUser(user) {
     email: user.email,
     phone: user.phone || null,
     role: user.role,
+    provider: user.provider,
+    avatar: user.avatar,
     isVerified: user.is_verified,
     createdAt: user.created_at,
   };
@@ -76,6 +81,14 @@ export const login = catchAsync(async (req, res) => {
     throw new AppError('Invalid email or password.', 401);
   }
 
+  // Google accounts cannot login using password
+  if (user.provider === 'google') {
+    throw new AppError(
+      'This account uses Google Sign-In. Please continue with Google.',
+      401
+    );
+  }
+
   // Compare password
   const isMatch = await bcrypt.compare(password, user.password_hash);
   if (!isMatch) {
@@ -89,6 +102,69 @@ export const login = catchAsync(async (req, res) => {
     token,
   });
 });
+export const googleLogin = catchAsync(async (req, res) => {
+    const { credential } = req.body;
+
+    if (!credential) {
+      throw new AppError('Google credential is required.', 400);
+    }
+
+    // Verify Google ID token
+    const ticket = await googleClient.verifyIdToken({
+      idToken: credential,
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+
+    const payload = ticket.getPayload();
+
+    const googleId = payload.sub;
+    const email = payload.email;
+    const firstName = payload.given_name || '';
+    const lastName = payload.family_name || '';
+    const avatar = payload.picture || '';
+
+    // 1. Check if Google account already exists
+    let user = await UserModel.findByGoogleId(googleId);
+
+    // 2. If not, check for existing email account
+    if (!user) {
+      user = await UserModel.findByEmail(email);
+
+      if (user) {
+        // Link Google account
+        await UserModel.linkGoogleAccount(
+          user.id,
+          googleId,
+          avatar
+        );
+
+        user = await UserModel.findById(user.id);
+      } else {
+        // Create new Google user
+        const userId = await UserModel.createGoogleUser({
+          firstName,
+          lastName,
+          email,
+          googleId,
+          avatar,
+        });
+
+        user = await UserModel.findById(userId);
+      }
+    }
+
+    const token = signToken(user);
+
+    return sendSuccess(
+      res,
+      200,
+      'Google login successful.',
+      {
+        user: formatUser(user),
+        token,
+      }
+    );
+  });
 
 // ─── GET PROFILE ─────────────────────────────────────────────────────
 export const getProfile = catchAsync(async (req, res) => {
