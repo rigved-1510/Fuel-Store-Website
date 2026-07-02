@@ -1,0 +1,292 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PITCH RETAIL | Football Jerseys</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"on-tertiary-fixed": "#191c1e", "secondary-fixed-dim": "#ffb4ab", "inverse-surface": "#213145", "on-tertiary-container": "#818486", "inverse-primary": "#bec6e0", "surface-variant": "#d3e4fe", "surface-container-lowest": "#ffffff", "on-primary-container": "#7c839b", "primary-container": "#131b2e", "on-surface-variant": "#45464d", "on-secondary-fixed": "#410002", "tertiary-fixed": "#e0e3e5", "surface-container-high": "#dce9ff", "on-tertiary-fixed-variant": "#444749", "primary-fixed": "#dae2fd", "on-tertiary": "#ffffff", "surface-container": "#e5eeff", "on-secondary-container": "#fffbff", "error-container": "#ffdad6", "surface-container-highest": "#d3e4fe", error: "#ba1a1a", "on-surface": "#0b1c30", "surface-bright": "#f8f9ff", "surface-container-low": "#eff4ff", background: "#f8f9ff", "on-background": "#0b1c30", "primary-fixed-dim": "#bec6e0", "on-primary": "#ffffff", "on-primary-fixed-variant": "#3f465c", primary: "#000000", "on-secondary-fixed-variant": "#93000b", "surface-dim": "#cbdbf5", "secondary-container": "#e8121d", tertiary: "#000000", "tertiary-container": "#191c1e", "on-error": "#ffffff", surface: "#f8f9ff", "inverse-on-surface": "#eaf1ff", "outline-variant": "#c6c6cd", "on-error-container": "#93000a", "secondary-fixed": "#ffdad6", "surface-tint": "#565e74", outline: "#76777d", "on-primary-fixed": "#131b2e", "tertiary-fixed-dim": "#c4c7c9", "on-secondary": "#ffffff", secondary: "#bb0011"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {"margin-desktop": "64px", xs: "4px", base: "8px", md: "24px", "margin-mobile": "16px", gutter: "16px", sm: "12px", lg: "48px", xl: "80px"}, fontFamily: {"headline-md": ["Montserrat"], "headline-sm": ["Montserrat"], "body-lg": ["Inter"], "display-lg": ["Montserrat"], "label-sm": ["Inter"], "display-lg-mobile": ["Montserrat"], "body-md": ["Inter"], "label-md": ["Inter"], headline: ["Montserrat"], display: ["Montserrat"], body: ["Inter"], label: ["Inter"]}, fontSize: {"headline-md": ["24px", {lineHeight: "32px", fontWeight: "700"}], "headline-sm": ["20px", {lineHeight: "28px", fontWeight: "700"}], "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}], "display-lg": ["48px", {lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800"}], "label-sm": ["12px", {lineHeight: "16px", fontWeight: "500"}], "display-lg-mobile": ["32px", {lineHeight: "38px", letterSpacing: "-0.02em", fontWeight: "800"}], "body-md": ["16px", {lineHeight: "24px", fontWeight: "400"}], "label-md": ["14px", {lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600"}]}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            -webkit-font-smoothing: antialiased;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .product-card {
+            transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.2s ease;
+        }
+        .product-card:active {
+            transform: scale(0.97);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full max-w-7xl mx-auto">
+<button class="p-2 active:opacity-80 active:scale-95 transition-transform" onclick="toggleDrawer()">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+</button>
+<h1 class="text-headline-sm font-headline-sm font-bold tracking-tighter text-on-surface">THE FUEL STORE</h1>
+<button class="p-2 active:opacity-80 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary" data-icon="shopping_cart">shopping_cart</span>
+</button>
+</div>
+</header>
+<!-- NavigationDrawer (Hidden by default) -->
+<div class="fixed inset-0 bg-black/40 z-[55] opacity-0 pointer-events-none transition-opacity duration-300" id="drawer-overlay" onclick="toggleDrawer()"></div>
+<aside class="fixed inset-y-0 left-0 z-[60] flex flex-col h-full w-72 rounded-r-xl bg-surface shadow-xl -translate-x-full transition-transform duration-300 ease-in-out" id="main-drawer">
+<div class="p-margin-mobile flex justify-between items-center border-b border-outline-variant">
+<span class="text-headline-md font-headline-md text-primary">CATEGORIES</span>
+<button onclick="toggleDrawer()" class=""><span class="material-symbols-outlined">close</span></button>
+</div>
+<nav class="flex flex-col py-4">
+<a class="bg-secondary-container text-on-secondary-container rounded-lg mx-2 my-1 px-4 py-3 font-bold flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="sports_soccer">sports_soccer</span>
+<span class="text-label-md font-label-md">Jerseys</span>
+</a>
+<a class="text-on-surface-variant mx-2 my-1 px-4 py-3 hover:bg-surface-container-high transition-colors flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="shield">shield</span>
+<span class="text-label-md font-label-md">Clubs</span>
+</a>
+<a class="text-on-surface-variant mx-2 my-1 px-4 py-3 hover:bg-surface-container-high transition-colors flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="new_releases">new_releases</span>
+<span class="text-label-md font-label-md">New Arrivals</span>
+</a>
+<a class="text-on-surface-variant mx-2 my-1 px-4 py-3 hover:bg-surface-container-high transition-colors flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="sell">sell</span>
+<span class="text-label-md font-label-md">Sale</span>
+</a>
+</nav>
+</aside>
+<main class="pt-20 pb-xl">
+<!-- Search and Filter Bar -->
+<section class="px-margin-mobile mb-lg">
+<div class="flex flex-col gap-base">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-outline" data-icon="search">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-low border border-outline-variant rounded-lg focus:outline-none focus:border-primary transition-all text-body-md" placeholder="Search jerseys, clubs, players..." type="text">
+</div>
+<div class="flex items-center justify-between">
+<button class="flex items-center gap-2 px-4 py-2 border border-outline text-on-surface rounded-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]" data-icon="tune">tune</span>
+<span class="text-label-md font-label-md">FILTER &amp; SORT</span>
+</button>
+<span class="text-label-sm text-on-surface-variant font-label-sm">428 PRODUCTS</span>
+</div>
+</div>
+</section>
+<!-- Quick Filter Chips -->
+<section class="px-margin-mobile mb-md flex gap-sm overflow-x-auto hide-scrollbar">
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-primary text-on-primary text-label-sm font-label-sm">All Teams</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-outline-variant text-on-surface-variant text-label-sm font-label-sm">Premier League</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-outline-variant text-on-surface-variant text-label-sm font-label-sm">La Liga</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full border border-outline-variant text-on-surface-variant text-label-sm font-label-sm">National Teams</button>
+</section>
+<!-- Product Grid -->
+<section class="px-margin-mobile grid grid-cols-2 gap-x-gutter gap-y-lg">
+<!-- Product 1 -->
+<div class="product-card flex flex-col">
+<div class="relative aspect-[3/4] bg-[#F8FAFC] rounded-lg overflow-hidden group">
+<img class="w-full h-full object-cover" data-alt="A professional studio photograph of a modern 2024 Manchester City home jersey displayed on a minimalist white mannequin. The lighting is crisp and even, highlighting the textured athletic fabric and sky blue color. The background is a clean, neutral ice-gray, emphasizing a premium retail aesthetic. The mood is sharp, performance-focused, and high-end." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgWsBe2bWZpe_JxJrdxcN9pC2fd2dD0wzuFNvqwEWHJH2zzyHyO-TRFm-HxfU7bxpGKMq4NRdMBU9C8lLEsMCxy6WCVSVs9WUns0rzbXWSKjaNbrvtKo_Nlo8skcRY0rtvJ7v4O3SxBJ1DqrgRQBsTIArdYh5qVGTMBTYmMNMq_V18LJN2GR5r-jFJHSCt4Rh-ho92DhViBA9j8p4CgPTTfW-0runCPf_b80QyAibc-jdRfVqBVUNUq7a6rFgtLObNzUp6SJNWPmE">
+<button class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite">favorite</span>
+</button>
+<span class="absolute bottom-2 left-2 px-2 py-0.5 bg-black text-white text-[10px] font-bold tracking-wider rounded">NEW</span>
+</div>
+<div class="mt-base flex flex-col">
+<p class="text-label-sm text-on-surface-variant font-label-sm uppercase tracking-widest">Man City</p>
+<h3 class="text-body-md font-headline-sm text-on-surface leading-tight mt-1">24/25 Home Jersey</h3>
+<p class="text-body-md font-body-md text-secondary mt-1">$95.00</p>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="product-card flex flex-col">
+<div class="relative aspect-[3/4] bg-[#F8FAFC] rounded-lg overflow-hidden group">
+<img class="w-full h-full object-cover" data-alt="A high-quality product shot of the Real Madrid 2024 home kit on a bright white background. The jersey features the iconic white color with subtle gold and dark navy detailing on the shoulders. The texture of the high-performance moisture-wicking fabric is clearly visible under professional lighting. The overall visual style is clean, modern, and prestigious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB789x3VrInF4rBmwi6KYVdumd_GTW5JB_4P1aGyWhLy6_32GXYCRkioVyGef7qwj64ms393G0Q1bIzBzD8B_pMlnO3yAc1A1q_DW0U2dgNtaDfGJzd7mMT685e9S0JmzDYcerqK-vbYlbFi045anJ8YqNLH4GFtw--S_29iutprSbGjgYEZu_cpd5P_IZengrsojEXElbm28MhhK_OXRJeh6FbHbdrO7kYE6RdQ6rH99fTYgezft9fnbbjNavhyO1EYOdx2ozlu6M">
+<button class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="mt-base flex flex-col">
+<p class="text-label-sm text-on-surface-variant font-label-sm uppercase tracking-widest">Real Madrid</p>
+<h3 class="text-body-md font-headline-sm text-on-surface leading-tight mt-1">24/25 Home Jersey</h3>
+<p class="text-body-md font-body-md text-on-surface mt-1">$100.00</p>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="product-card flex flex-col">
+<div class="relative aspect-[3/4] bg-[#F8FAFC] rounded-lg overflow-hidden group">
+<img class="w-full h-full object-cover" data-alt="A detailed retail image of the Brazil national team 2024 yellow home jersey. The vibrant canary yellow fabric has a faint embossed pattern inspired by Brazilian flora. The lighting is bright and high-contrast, bringing out the rich colors and the green collar detail. The aesthetic is energetic and athletic, presented in a professional e-commerce style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvfVqZXIhDbA_J-iAUsLFzpw31HWsBw3id7DztZugFg_9bFAlaxdy2hPn6fikJ8cwa5ra02QXDTeQLT_DS4U8sRGW11Esttstn_27LWBp7DyOId7enyK5hXZmZeenpLdE9HUa7SBSEgMsnvhH2Hvv0NX4MMsOX8mu-d9ttbviYOp2IMed8gdKz6EDz1uaOzhd9wYogSLd7HxOAU1d2MwbGcaOSS8URTZbRL8U5wA8-b_PpmgW2bn6hdh18TnV6PKUHR_m1F-89q8g">
+<button class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="mt-base flex flex-col">
+<p class="text-label-sm text-on-surface-variant font-label-sm uppercase tracking-widest">Brazil</p>
+<h3 class="text-body-md font-headline-sm text-on-surface leading-tight mt-1">2024 Stadium Home</h3>
+<p class="text-body-md font-body-md text-on-surface mt-1">$85.00</p>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="product-card flex flex-col">
+<div class="relative aspect-[3/4] bg-[#F8FAFC] rounded-lg overflow-hidden group">
+<img class="w-full h-full object-cover" data-alt="A clean, professional photograph of the Arsenal 2024 away jersey. The kit features a sophisticated black base with vibrant red and green accents. The jersey is laid out on a light gray reflective surface with soft shadows, highlighting the high-quality stitching and authentic details. The design reflects modern athletic streetwear and premium performance wear." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-JMzjvgBi97tnO3It5e6xvvIX_iNB2kegKLGSSUL_zVelPOitqg9br-eQizFNA8WkO3Y5rQ_L1MybuKWLnTJ9U6c4U5Vf2BuaXuNTWTR_1N_fTSvCWmh-d0KXyh2FZSkgLZI8gShZnl04SgHQCIaWswyCBrROrjmEzp8FjOEssiYKvxdrvCfqg0yI_J7t_Yh0eZZgLiUWBkP1HQO8rr2Z0Oewh3qRUGpdA4fMZo4aEfbX6eEkRkxLFI25YL30i3JihxE_MvTE_BU">
+<button class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite">favorite</span>
+</button>
+<span class="absolute bottom-2 left-2 px-2 py-0.5 bg-secondary text-white text-[10px] font-bold tracking-wider rounded">SALE</span>
+</div>
+<div class="mt-base flex flex-col">
+<p class="text-label-sm text-on-surface-variant font-label-sm uppercase tracking-widest">Arsenal</p>
+<h3 class="text-body-md font-headline-sm text-on-surface leading-tight mt-1">24/25 Away Jersey</h3>
+<p class="text-body-md font-body-md text-secondary mt-1"><span class="line-through text-outline-variant mr-1">$90.00</span> $65.00</p>
+</div>
+</div>
+<!-- Product 5 -->
+<div class="product-card flex flex-col">
+<div class="relative aspect-[3/4] bg-[#F8FAFC] rounded-lg overflow-hidden group">
+<img class="w-full h-full object-cover" data-alt="A commercial product image of the AC Milan 2024 home jersey featuring the classic red and black vertical stripes. The lighting is sharp, creating a high-energy feel that celebrates the heritage of Italian football. The jersey is perfectly centered against a neutral studio background, showcasing the embroidered club crest and sponsors in crisp detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGCjjtMk9DrarReZkxANdPzvO63mmtTm6tP8aPfQJjGjUU4O6v4lPW_FV2q6mQFkSRcsHLKEUHjeCb80cZ_-1hhGSPz1JLSQJKY8oOXLhdcWLgyVueCmbsHkkUhiK6piWSXL2sAbitqY7GgN2eu7Hibu9b4UEk-2IaZSrKJEUCope7pGWOx_sVotUq9jLJeVwoygoFE2V4uCLa0bCm3Ws0Bxe4N_rd_WwIEPsN0vTfx1MFFq2U-N9EDAeGq0qifNxsYIjJjfg_c60">
+<button class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="mt-base flex flex-col">
+<p class="text-label-sm text-on-surface-variant font-label-sm uppercase tracking-widest">AC Milan</p>
+<h3 class="text-body-md font-headline-sm text-on-surface leading-tight mt-1">24/25 Iconic Home</h3>
+<p class="text-body-md font-body-md text-on-surface mt-1">$95.00</p>
+</div>
+</div>
+<!-- Product 6 -->
+<div class="product-card flex flex-col">
+<div class="relative aspect-[3/4] bg-[#F8FAFC] rounded-lg overflow-hidden group">
+<img class="w-full h-full object-cover" data-alt="A sleek studio shot of the Inter Miami 2024 home jersey in its signature vibrant pink. The fabric's subtle wave pattern is illuminated by side-lighting, adding depth and a premium feel. The kit is presented in a minimal, high-end fashion aesthetic with a clean white background. It looks both sporty and trendy, targeting a modern football fan." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDsdMIO-Ldrp64nCLjOpECVWsemqIM3biDhTXTlz1c7RMOhQRzpoiF1P2Cr3_N9k6mMxpq4QY17jWFcSOzjq49ZcVYEQ4Yzlpxa0eTtZi2ihsvda5eqPuZML4L9ZNF90ZMnf1Z0Ied42eLllRnSEh0vVADER5GUupEnEQRrUwMBDjrHNRY353mfpdYCWN1i2uxS-WprAKlhaUBWKT7caSSG1UNTuopmC2hyluKNwiY4hvEuCPDxUWL3moBcvkLwmM5nT1-MfP5nFY">
+<button class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="mt-base flex flex-col">
+<p class="text-label-sm text-on-surface-variant font-label-sm uppercase tracking-widest">Inter Miami</p>
+<h3 class="text-body-md font-headline-sm text-on-surface leading-tight mt-1">2024 Pink Home</h3>
+<p class="text-body-md font-body-md text-on-surface mt-1">$120.00</p>
+</div>
+</div>
+</section>
+<!-- Load More -->
+<section class="mt-xl px-margin-mobile flex flex-col items-center gap-md">
+<button class="w-full max-w-xs py-4 bg-primary text-on-primary font-bold rounded-lg active:scale-[0.98] transition-transform">
+                LOAD MORE
+            </button>
+<p class="text-label-sm text-outline font-label-sm">VIEWING 6 OF 428</p>
+<div class="w-full max-w-xs h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[15%]"></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-xl bg-surface-container-lowest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md px-margin-mobile md:px-margin-desktop py-lg max-w-7xl mx-auto">
+<div class="col-span-1">
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-bold tracking-tighter mb-4">PITCH RETAIL</h2>
+<p class="text-body-md text-on-surface-variant mb-6">Premium performance gear for the modern athlete. Engineered for the pitch, designed for the streets.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">face_nod</span>
+<span class="material-symbols-outlined text-on-surface-variant">brand_awareness</span>
+<span class="material-symbols-outlined text-on-surface-variant">alternate_email</span>
+</div>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="text-label-md font-bold text-on-surface">SHOP</h4>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">New Arrivals</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Team Kits</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Boots &amp; Gear</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Training</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="text-label-md font-bold text-on-surface">HELP</h4>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Shipping Policy</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Returns</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Us</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="text-label-md font-bold text-on-surface">LEGAL</h4>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy</a>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop py-base border-t border-outline-variant/30 text-center">
+<p class="text-label-sm font-label-sm text-outline">© 2024 Pitch Retail Performance. All Rights Reserved.</p>
+</div>
+</footer>
+<!-- Bottom Navigation Shell (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface/90 backdrop-blur-md flex justify-around items-center h-16 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] px-4">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[24px]" data-icon="home">home</span>
+<span class="text-[10px] font-semibold uppercase tracking-widest">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[24px] font-bold" data-icon="sports_soccer">sports_soccer</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Shop</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[24px]" data-icon="favorite">favorite</span>
+<span class="text-[10px] font-semibold uppercase tracking-widest">Saved</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[24px]" data-icon="person">person</span>
+<span class="text-[10px] font-semibold uppercase tracking-widest">Profile</span>
+</button>
+</nav>
+<script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('main-drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            const isOpen = drawer.classList.contains('translate-x-0');
+
+            if (isOpen) {
+                drawer.classList.remove('translate-x-0');
+                drawer.classList.add('-translate-x-full');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                overlay.classList.remove('opacity-100', 'pointer-events-auto');
+            } else {
+                drawer.classList.remove('-translate-x-full');
+                drawer.classList.add('translate-x-0');
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                overlay.classList.add('opacity-100', 'pointer-events-auto');
+            }
+        }
+
+        // Simple scroll effect for top app bar
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('bg-surface/95', 'shadow-md');
+                header.classList.remove('bg-surface/80', 'shadow-sm');
+            } else {
+                header.classList.remove('bg-surface/95', 'shadow-md');
+                header.classList.add('bg-surface/80', 'shadow-sm');
+            }
+        });
+    </script>
+
+
+</body></html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>VALENCIA FC 24/25 | PITCH RETAIL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#ffb4ab",
+                    "on-primary-fixed": "#131b2e",
+                    "surface-container": "#e5eeff",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "on-primary": "#ffffff",
+                    "surface": "#f8f9ff",
+                    "secondary": "#bb0011",
+                    "primary-fixed": "#dae2fd",
+                    "on-error": "#ffffff",
+                    "background": "#f8f9ff",
+                    "outline-variant": "#c6c6cd",
+                    "surface-container-high": "#dce9ff",
+                    "surface-variant": "#d3e4fe",
+                    "on-tertiary-fixed": "#191c1e",
+                    "on-secondary-container": "#fffbff",
+                    "surface-bright": "#f8f9ff",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#213145",
+                    "tertiary-fixed": "#e0e3e5",
+                    "on-secondary-fixed-variant": "#93000b",
+                    "inverse-primary": "#bec6e0",
+                    "on-tertiary-container": "#818486",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#45464d",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#d3e4fe",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#eff4ff",
+                    "primary": "#000000",
+                    "tertiary": "#000000",
+                    "primary-fixed-dim": "#bec6e0",
+                    "on-primary-container": "#7c839b",
+                    "surface-dim": "#cbdbf5",
+                    "secondary-fixed": "#ffdad6",
+                    "on-secondary-fixed": "#410002",
+                    "on-tertiary": "#ffffff",
+                    "outline": "#76777d",
+                    "on-surface": "#0b1c30",
+                    "secondary-container": "#e8121d",
+                    "primary-container": "#131b2e",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "tertiary-container": "#191c1e",
+                    "surface-tint": "#565e74",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-error-container": "#93000a",
+                    "on-background": "#0b1c30"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "xs": "4px",
+                    "sm": "12px",
+                    "base": "8px",
+                    "xl": "80px",
+                    "md": "24px",
+                    "lg": "48px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Montserrat"],
+                    "headline-sm": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary selection:text-white">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-base">
+<button class="p-base active:opacity-80 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="text-headline-sm font-headline-sm font-bold tracking-tighter text-on-surface">THE FUEL STORE</h1>
+</div>
+<nav class="hidden md:flex gap-md">
+<a class="text-label-md font-label-md text-secondary font-bold hover:text-secondary transition-colors duration-200" href="#">Jerseys</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Clubs</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">New Arrivals</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Sale</a>
+</nav>
+<div class="flex items-center gap-sm">
+<button class="p-base active:opacity-80 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-primary">search</span>
+</button>
+<button class="p-base active:opacity-80 active:scale-95 transition-all relative">
+<span class="material-symbols-outlined text-primary">shopping_cart</span>
+<span class="absolute top-1 right-1 bg-secondary text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">0</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-xl max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-xs text-label-sm font-label-sm text-on-surface-variant mb-md">
+<a class="hover:text-primary" href="#">Home</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary" href="#">Jerseys</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface">Valencia FC 24/25</span>
+</nav>
+<!-- Product Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg lg:gap-xl">
+<!-- Left: Gallery -->
+<div class="lg:col-span-7 flex flex-col-reverse md:flex-row gap-gutter">
+<!-- Thumbnails -->
+<div class="flex md:flex-col gap-sm overflow-x-auto md:overflow-y-auto hide-scrollbar">
+<div class="flex-shrink-0 w-20 h-24 bg-surface-container border-2 border-primary cursor-pointer rounded-lg overflow-hidden transition-all hover:opacity-80">
+<img class="w-full h-full object-cover" data-alt="Close up studio shot of the Valencia FC 24/25 home jersey showing the intricate moisture-wicking fabric texture and the embroidered club crest. Professional lighting highlighting the premium athletic white and orange accents on a clean gray studio background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_SnWs_7lF57sFHNnG9Gjs_4KnTrzI9Q6QaOyXMM4449c0Gf2dJCcp7HvedR86o7u1uUK2lO_Wxw6JUeKGqxT2VQalIDww8yd12VJFMl1jYQ2VzqgtLoxPgQQFg9BXZMGptVVey1A-yFypP4SDe7rsvgg2rezmZ61D-GoPe5bmmdCad13wJEm0Rn_IAr0dTckJy_BAD6EUBvRRWPDWFRpYcPD74PvNng4o0pVkyX7yP35kMw7IRbjfQC93odewhYbCi4dnNK43MNo">
+</div>
+<div class="flex-shrink-0 w-20 h-24 bg-surface-container border border-outline-variant cursor-pointer rounded-lg overflow-hidden transition-all hover:opacity-80">
+<img class="w-full h-full object-cover" data-alt="Back view of the Valencia FC 24/25 home football jersey displayed on a minimalist mannequin. The design shows a clean white panel with performance mesh ventilation zones and a subtle geometric pattern. High-end athletic aesthetic with bright studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuisFevP-kS2m_UlsHsZRuUCktK5wKLIafzz-ahsPULbwcNG9D6oEyxht28G6vY0N9urY2f53SNcscwW-xlOVaJdBbmex0zcpXhzH46mH0_YECZuu7woCUE4bUr6FjvLdi4Bf1efrFQfb_6dJRjOnUB7WyFbbZ8Oxb0eYMx4SIGZDK3P5XO-LoT63MwjIQvn5DBbvIXhoSf5qgMHzXfVEKL-i9LMidPGUAAbhTZ1jxShD0tfv1wF2sxnvudv_ytQx-VAbZ4IjlgBo">
+</div>
+<div class="flex-shrink-0 w-20 h-24 bg-surface-container border border-outline-variant cursor-pointer rounded-lg overflow-hidden transition-all hover:opacity-80">
+<img class="w-full h-full object-cover" data-alt="Detail shot of the sleeve and collar area of the Valencia FC 24/25 football kit. Focus on the authentic performance badge and the vibrant orange trim details. Minimalist aesthetic, sharp focus, vibrant athletic energy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADm2ZBa5fPW3kTN58mcPmG26i2IMqNHPAAhpDcsM_BsbD-vonc54qI2SjU_pxG7dnVKeRGYsL1B6l_yDg-E8F3iWr4lXFcC1EUw-ZKquifzBLhXQ_T355v-SqKIFctILHmUI75DbtJQOHRHdq9bz1QMK-_mjBPDbMV0aOr5JAf47oHdbfCJejW8gPmYZtDPtAbva-EqbmG94H92TdDLSSzDLeF3oLV8c_lD-L1tjeouY4bz4jKXPI3kbOO8gc4ciG9r-r1sDDzgb4">
+</div>
+<div class="flex-shrink-0 w-20 h-24 bg-surface-container border border-outline-variant cursor-pointer rounded-lg overflow-hidden transition-all hover:opacity-80">
+<img class="w-full h-full object-cover" data-alt="A lifestyle shot of an athlete wearing the Valencia FC 24/25 home jersey on a modern urban pitch during golden hour. Soft natural lighting creates a dynamic, high-performance mood with a focus on movement and fabric breathability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoLMG05kAl-dN-ePARH0YiAo5lm68H1dQf_p_dcdTloQn5rAmQVVoETZuG1kb5otfzx-lvd0nBqM1WPULywRbOMx-R1j-xy4yta9qJsfbCD1hEKlFx1vMsVVwV5nfROf9AoMGMVsIiEN9acVIA7ETElVi3CZ5l6tNzyE4Pjf3w5xbS2u9vUqZjTxx7kiN7Wpc4WmnSJU3XU3O4dTVjQPpl5ii4eVVuDvzGX7t_npe_UVw32nE-vJq9D-ilIHDOvoG8IDkqgyEn2cQ">
+</div>
+</div>
+<!-- Main Image -->
+<div class="flex-1 aspect-[4/5] bg-surface-container rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Main product showcase of the Valencia FC 24/25 Home Authentic Jersey. The jersey is centered against a soft gray professional studio backdrop. It features a crisp white primary body with elegant orange and black trim, showcasing the official club sponsor and sponsor logos with sharp clarity and athletic precision." id="main-product-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1gnbGWDHBmLL6J9e8c6TYUheHJC_CucGqsdc1oHP-gqtN7dmEBxNmpm_Y1Ye5pL7w1jjBKt8s-skFLrhZSNxCNRnltr4x2wQc-xa4LOcwfxfoTqpGGDTw6CicHmklDpu2hBmaJwL_YmVawLonlzN_zDyXIEyHo3VCJWDDnrc-4xVspBb1BH8dWngRQyzQ3oMt0C8rWb7ZC8bT2mLcsmXF9pZC1tkWRhyyUJjZ0NynU9mwG4bZ-6DfEtFg2HctKrC7FHnN7Oj6icQ">
+<button class="absolute top-4 right-4 bg-white/80 backdrop-blur shadow-md p-base rounded-full hover:bg-white transition-all">
+<span class="material-symbols-outlined text-on-surface">zoom_in</span>
+</button>
+</div>
+</div>
+<!-- Right: Details -->
+<div class="lg:col-span-5 flex flex-col">
+<div class="mb-sm">
+<span class="inline-block bg-primary text-white text-[10px] font-bold px-sm py-1 tracking-widest rounded-full uppercase">Authentic Home Kit</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xs tracking-tight">VALENCIA FC 24/25</h2>
+<div class="flex items-center gap-sm mb-md">
+<span class="text-headline-sm font-headline-sm text-secondary">$120.00</span>
+<span class="text-label-md font-label-md text-on-surface-variant line-through">$145.00</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-lg">
+                    Experience the pinnacle of match-day performance. Engineered for elite athletes, the 24/25 Valencia Authentic Home Jersey features ultra-breathable VaporKnit technology and strategic ventilation zones.
+                </p>
+<!-- Size Selection -->
+<div class="mb-lg">
+<div class="flex justify-between items-center mb-base">
+<span class="text-label-md font-label-md text-on-surface">SELECT SIZE</span>
+<a class="text-label-sm font-label-sm text-secondary underline" href="#">Size Guide</a>
+</div>
+<div class="grid grid-cols-4 gap-sm">
+<button class="h-12 border border-outline-variant flex items-center justify-center font-label-md text-label-md rounded-lg hover:border-primary transition-all active:scale-95">S</button>
+<button class="h-12 border-2 border-primary bg-primary text-white flex items-center justify-center font-label-md text-label-md rounded-lg active:scale-95">M</button>
+<button class="h-12 border border-outline-variant flex items-center justify-center font-label-md text-label-md rounded-lg hover:border-primary transition-all active:scale-95">L</button>
+<button class="h-12 border border-outline-variant flex items-center justify-center font-label-md text-label-md rounded-lg hover:border-primary transition-all active:scale-95">XL</button>
+</div>
+</div>
+<!-- Quantity & Add to Cart -->
+<div class="flex gap-gutter mb-xl">
+<div class="flex items-center border border-outline-variant rounded-lg h-14 px-sm bg-surface-container-low">
+<button class="p-xs hover:text-secondary"><span class="material-symbols-outlined">remove</span></button>
+<input class="w-12 text-center bg-transparent border-none focus:ring-0 font-bold" min="1" type="number" value="1">
+<button class="p-xs hover:text-secondary"><span class="material-symbols-outlined">add</span></button>
+</div>
+<button class="flex-1 bg-secondary text-white font-bold h-14 rounded-lg flex items-center justify-center gap-sm hover:opacity-90 active:scale-98 transition-all shadow-md">
+<span class="material-symbols-outlined">shopping_bag</span>
+                        ADD TO CART
+                    </button>
+</div>
+<!-- Benefits -->
+<div class="space-y-md border-t border-outline-variant pt-lg">
+<div class="flex gap-sm">
+<span class="material-symbols-outlined text-secondary">local_shipping</span>
+<div>
+<h4 class="text-label-md font-label-md text-on-surface">FREE EXPRESS SHIPPING</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">On orders over $150. Delivery in 2-4 days.</p>
+</div>
+</div>
+<div class="flex gap-sm">
+<span class="material-symbols-outlined text-secondary">verified</span>
+<div>
+<h4 class="text-label-md font-label-md text-on-surface">AUTHENTIC GUARANTEE</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Official club merchandise with verified holographic tags.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Technical Specs / Description Section -->
+<section class="mt-xl py-xl border-t border-outline-variant">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<div class="lg:col-span-5">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-md">TECHNICAL PRECISION</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-lg leading-relaxed">
+                        Designed for the highest level of competition, the Valencia FC 24/25 Authentic Kit is more than just a jersey; it's a piece of tactical equipment. The jacquard-engineered fabric creates a map of the body's heat zones for targeted cooling where players need it most.
+                    </p>
+<ul class="space-y-sm">
+<li class="flex items-center gap-sm text-label-md font-label-md text-on-surface">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+                            Advanced AeroReady moisture-wicking technology
+                        </li>
+<li class="flex items-center gap-sm text-label-md font-label-md text-on-surface">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+                            Lightweight 3D crest for reduced friction
+                        </li>
+<li class="flex items-center gap-sm text-label-md font-label-md text-on-surface">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+                            100% Recycled polyester mesh
+                        </li>
+<li class="flex items-center gap-sm text-label-md font-label-md text-on-surface">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+                            Tailored athletic fit for explosive movement
+                        </li>
+</ul>
+</div>
+<div class="lg:col-span-7 grid grid-cols-2 gap-base">
+<div class="aspect-square bg-surface-container rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Macro photography of the Valencia FC crest embroidered with high-definition stitching on the 24/25 jersey. The photo captures the fine texture of the black and orange threads against the white technical fabric. High-contrast athletic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDendXpD-kXXngvZukkNfV23sD9RzuTmlENuiWlRe1b_twudoHbBTouzSpb_4RWL4mbg_u2ERb4DvAptw9SJxc97obiXcLimpM8onlrwC3Zds0zDcrtMmwst_yvH27W3FlI5msKkhGljzV3WrJZEmm2OTncqRnCxxGpEM1tdGS6DHQfZnZEUScMTW01isZbPrkyw0YIh7qbgof6y31Cy6-qMyHEWUXRgqB7mGpwqKrtfZNcH4wSw17qFeqrKU0hqeL7BPqUq5BGzBU">
+</div>
+<div class="aspect-square bg-surface-container rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up of the ventilation mesh pattern on the side of the Valencia FC 24/25 jersey. The geometric laser-cut holes are clearly visible, showcasing the technical engineering for heat management. Minimalist, professional sport aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7fK5Qrsp6oOoiCuj_FnHOSEkBglQBHfdzF9hYUk8TfzIEyC6XteVv7okiXAo59JBaRw1npClAvMOxueavnknhVRfykYSogDfstVXvPnZEHgTOjIlufuvaq4DbGzhVf5TeKEI_QBM3zBjjeFrprzA-nGqJqiQRy8S19QUv6Qn_ROkWUBHaxw6rFsRiJ9az2oWVnWDO_WmUdjmn8fr-ysVVIAcJ4ScL7C8aKQUprWXs5hpTlNsrDfT5_sp0Drp9zrt6lveJqx8lLqA">
+</div>
+</div>
+</div>
+</section>
+<!-- Complete the Look -->
+<section class="mt-xl">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs uppercase">Complete the Look</h3>
+<p class="text-label-md font-label-md text-on-surface-variant">Recommended pairings for the full kit.</p>
+</div>
+<button class="text-label-md font-label-md text-secondary hover:underline flex items-center gap-xs">
+                    SHOP ALL ACCESSORIES
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
+<!-- Product Card 1 -->
+<div class="group">
+<div class="aspect-[4/5] bg-surface-container-low rounded-xl overflow-hidden mb-sm relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Professional studio shot of official Valencia FC 24/25 home shorts. Sleek black performance fabric with orange stripes and the club crest. Minimalist gray background, sharp athletic focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5Dm5XFeBELfrlPRjwLMePOnsBXkjkJV5owejUyrUYsvuCYTliiJX20vmHFvr5e7Ws0vq_gbVYKt20SiLSZiL41AITNLSv2NEXHa02TiwvQBkQQmld-ws00gZ-T2mo088gQwkwl8NsZpel4nXDLpzHHwDgio5Z0vCWmjGMAFIv2OW6Vw30gbnQqPfWH76lVFXngWwB15tamD7A8yg_JAHPL2ylndMee5M-pAsSlx3eU8YoTYeVqjza_l6bEcVi0QGkEiZTrVsAkRQ">
+<button class="absolute bottom-4 right-4 bg-white p-base rounded-full shadow-md opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+<span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+</button>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">VALENCIA 24/25 HOME SHORTS</h4>
+<p class="text-label-sm font-label-sm text-secondary font-bold">$45.00</p>
+</div>
+<!-- Product Card 2 -->
+<div class="group">
+<div class="aspect-[4/5] bg-surface-container-low rounded-xl overflow-hidden mb-sm relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="High-performance Valencia FC 24/25 matchday socks. White base with orange ribbing and black branding. Displayed vertically on a clean background, athletic precision lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0aMHHqB7i9Hlu6JTtSPhJZ8U2407hiWkC3kd1JL2Qqr7c7CDFq1PECUvUH5Zh_juMlbUF9wUPV5bzzdx5Ga9z86PHnktpsRD9oaWYwow4FZ0s4zyjn5yOW4PeokaYF5OYvsXnuwL_ibL3TWmCKYLjj_akb-r15DHDDJNs__HeHwpGRQR4j_fdlIthzTiwH8sP11nnGX5AQhyKqm83CtOqYyxSrWUB7xClK2MhAW7B1YXpg7RYkvr3Jl4uYDXKcOYDn2sbATRAxlE">
+<button class="absolute bottom-4 right-4 bg-white p-base rounded-full shadow-md opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+<span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+</button>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">VALENCIA 24/25 MATCH SOCKS</h4>
+<p class="text-label-sm font-label-sm text-secondary font-bold">$22.00</p>
+</div>
+<!-- Product Card 3 -->
+<div class="group">
+<div class="aspect-[4/5] bg-surface-container-low rounded-xl overflow-hidden mb-sm relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Official Valencia FC 24/25 Training Anthem Jacket in deep charcoal and bright orange. Technical zip-up style with aerodynamic cut. Professional athletic photography on gray background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN26qSF5GfsSD8oxY54QhX5pnQ1O1sjBvJZUHU2PNA1DO8igsmYWZFshU8YEtS1Ua5n-CDFVv9q9GFoJ1mOcSaUwe675r_WXqxCBk4_q7SHOYWzhxAcgZZ3OBZJsW_E1_Fh9srFS3S6a7cADTjuGe1B_XiqAIxEb3P9N3Z05t6FTbw_5s8CDFgtp-1kMYe4kkFaNS5OX3p5vJTe1AEyCCFgmgMUKn27QxpBsjJK8ZsVl0TbcrU2Doj_ITlwmG2Uy7GWzD55_sjbrE">
+<button class="absolute bottom-4 right-4 bg-white p-base rounded-full shadow-md opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+<span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+</button>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">VALENCIA ANTHEM JACKET</h4>
+<p class="text-label-sm font-label-sm text-secondary font-bold">$95.00</p>
+</div>
+<!-- Product Card 4 -->
+<div class="group">
+<div class="aspect-[4/5] bg-surface-container-low rounded-xl overflow-hidden mb-sm relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Official Valencia FC match ball featuring the 24/25 season graphic patterns. Modern geometric design in orange, black, and white. Isolated on a light gray background with sharp shadow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbKxPB7mKAb8NrxiIIKNG3m-cYwgegY0VhJMKdvhGRHJec45omEaFXqWmCYdkv16uo6ZEbA4Y7PdF4rVke8sC8AB_BY7coh4mr_uGE5CdFTwZdcEO17whC2uO1ldNCVmPvEIr7vsaVaWbnZ6mxNB3-FyJM1Z0N2VS8ruKtWizHW0R88ZweGaEp8OrfCujZJt6pfzJgVBfUrjhQle4P8cwp29wevMG_h87dfA1gbGvq9Y3YUATYwOAMLZ8tfOJ7I-ZRXdH5R0WZfrg">
+<button class="absolute bottom-4 right-4 bg-white p-base rounded-full shadow-md opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+<span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+</button>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">VFC 24/25 OFFICIAL MATCH BALL</h4>
+<p class="text-label-sm font-label-sm text-secondary font-bold">$160.00</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant w-full mt-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md px-margin-mobile md:px-margin-desktop py-lg max-w-7xl mx-auto">
+<div class="flex flex-col gap-sm">
+<h2 class="text-headline-sm font-headline-sm font-bold tracking-tighter text-on-surface">PITCH RETAIL</h2>
+<p class="text-label-sm font-label-sm text-on-surface-variant max-w-[240px]">Providing elite performance gear to the modern athlete. Quality. Precision. Passion.</p>
+<div class="flex gap-sm mt-base">
+<button class="p-xs hover:text-secondary transition-colors"><span class="material-symbols-outlined">public</span></button>
+<button class="p-xs hover:text-secondary transition-colors"><span class="material-symbols-outlined">share</span></button>
+<button class="p-xs hover:text-secondary transition-colors"><span class="material-symbols-outlined">alternate_email</span></button>
+</div>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="text-label-md font-label-md text-on-surface uppercase font-bold">Shop</h4>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">New Arrivals</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Jersey Customization</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Club Kits</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Training Gear</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="text-label-md font-label-md text-on-surface uppercase font-bold">Support</h4>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Shipping Policy</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Returns &amp; Exchanges</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Terms of Service</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Contact Us</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="text-label-md font-label-md text-on-surface uppercase font-bold">Newsletter</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-xs">Join the club for early access and exclusive drops.</p>
+<div class="flex border border-outline rounded-lg overflow-hidden">
+<input class="flex-1 px-sm py-2 bg-transparent text-label-sm border-none focus:ring-0" placeholder="Email Address" type="email">
+<button class="bg-primary text-white px-md font-bold text-label-sm hover:bg-secondary transition-all">JOIN</button>
+</div>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop py-md border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-sm">
+<p class="text-label-sm font-label-sm text-on-surface-variant">© 2024 Pitch Retail Performance. All Rights Reserved.</p>
+<div class="flex gap-md">
+<span class="text-label-sm font-label-sm text-on-surface-variant">VISA</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">MASTERCARD</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">APPLE PAY</span>
+</div>
+</div>
+</footer>
+<script>
+        // Simple interactivity for thumbnails and quantity
+        document.querySelectorAll('.flex-shrink-0').forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                // Update main image logic would go here
+                document.querySelectorAll('.flex-shrink-0').forEach(t => t.classList.remove('border-primary', 'border-2'));
+                document.querySelectorAll('.flex-shrink-0').forEach(t => t.classList.add('border', 'border-outline-variant'));
+                this.classList.remove('border', 'border-outline-variant');
+                this.classList.add('border-primary', 'border-2');
+            });
+        });
+
+        // Size selector behavior
+        document.querySelectorAll('.grid-cols-4 button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.grid-cols-4 button').forEach(b => {
+                    b.className = 'h-12 border border-outline-variant flex items-center justify-center font-label-md text-label-md rounded-lg hover:border-primary transition-all active:scale-95';
+                });
+                this.className = 'h-12 border-2 border-primary bg-primary text-white flex items-center justify-center font-label-md text-label-md rounded-lg active:scale-95';
+            });
+        });
+    </script>
+
+
+</body></html>

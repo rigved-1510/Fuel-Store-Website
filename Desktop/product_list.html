@@ -1,0 +1,435 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PITCH RETAIL | Authentic Football Jerseys</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#ffb4ab",
+                    "on-primary-fixed": "#131b2e",
+                    "surface-container": "#e5eeff",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "on-primary": "#ffffff",
+                    "surface": "#f8f9ff",
+                    "secondary": "#bb0011",
+                    "primary-fixed": "#dae2fd",
+                    "on-error": "#ffffff",
+                    "background": "#f8f9ff",
+                    "outline-variant": "#c6c6cd",
+                    "surface-container-high": "#dce9ff",
+                    "surface-variant": "#d3e4fe",
+                    "on-tertiary-fixed": "#191c1e",
+                    "on-secondary-container": "#fffbff",
+                    "surface-bright": "#f8f9ff",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#213145",
+                    "tertiary-fixed": "#e0e3e5",
+                    "on-secondary-fixed-variant": "#93000b",
+                    "inverse-primary": "#bec6e0",
+                    "on-tertiary-container": "#818486",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#45464d",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#d3e4fe",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#eff4ff",
+                    "primary": "#000000",
+                    "tertiary": "#000000",
+                    "primary-fixed-dim": "#bec6e0",
+                    "on-primary-container": "#7c839b",
+                    "surface-dim": "#cbdbf5",
+                    "secondary-fixed": "#ffdad6",
+                    "on-secondary-fixed": "#410002",
+                    "on-tertiary": "#ffffff",
+                    "outline": "#76777d",
+                    "on-surface": "#0b1c30",
+                    "secondary-container": "#e8121d",
+                    "primary-container": "#131b2e",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "tertiary-container": "#191c1e",
+                    "surface-tint": "#565e74",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-error-container": "#93000a",
+                    "on-background": "#0b1c30"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "xs": "4px",
+                    "sm": "12px",
+                    "base": "8px",
+                    "xl": "80px",
+                    "md": "24px",
+                    "lg": "48px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Montserrat"],
+                    "headline-sm": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+        }
+        .filter-sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .filter-sidebar::-webkit-scrollbar-thumb {
+            background: #d3e4fe;
+            border-radius: 10px;
+        }
+        .jersey-card:hover .favorite-btn {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-base">
+<button class="p-base text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-headline-sm font-headline-sm font-bold tracking-tighter text-on-surface dark:text-surface-bright">THE FUEL STORE</h1>
+</div>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-secondary dark:text-secondary-fixed font-bold text-label-md font-label-md hover:text-secondary transition-colors duration-200" href="#">Jerseys</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container text-label-md font-label-md hover:text-secondary transition-colors duration-200" href="#">Clubs</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container text-label-md font-label-md hover:text-secondary transition-colors duration-200" href="#">New Arrivals</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container text-label-md font-label-md hover:text-secondary transition-colors duration-200" href="#">Sale</a>
+</nav>
+<div class="flex items-center gap-sm">
+<button class="p-base text-primary dark:text-primary-fixed active:opacity-80 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="p-base text-primary dark:text-primary-fixed active:opacity-80 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24 min-h-screen max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Search & Breadcrumbs Row -->
+<section class="mb-lg">
+<nav aria-label="Breadcrumb" class="flex items-center gap-xs text-label-sm font-label-sm text-on-surface-variant mb-base">
+<a class="hover:text-primary" href="#">Home</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">All Jerseys</span>
+</nav>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h2 class="text-display-lg-mobile md:text-display-lg font-display-lg-mobile md:font-display-lg text-primary tracking-tight">JERSEY COLLECTION</h2>
+<p class="text-body-md text-on-surface-variant mt-xs">Premium performance kits for every pitch.</p>
+</div>
+<div class="relative w-full md:w-96">
+<input class="w-full bg-surface-container-low border-none rounded-lg px-md py-sm focus:ring-2 focus:ring-primary text-body-md" placeholder="Search by team, player or kit..." type="text">
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+</div>
+</div>
+</section>
+<div class="flex flex-col md:flex-row gap-lg">
+<!-- Left Sidebar Filters -->
+<aside class="w-full md:w-64 flex-shrink-0">
+<div class="sticky top-24 space-y-lg">
+<!-- Team Filter -->
+<div class="space-y-sm">
+<h3 class="text-label-md font-label-md font-bold uppercase tracking-widest text-primary">Team</h3>
+<div class="space-y-xs">
+<label class="flex items-center gap-sm group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline text-secondary focus:ring-secondary" type="checkbox">
+<span class="text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Manchester City</span>
+</label>
+<label class="flex items-center gap-sm group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline text-secondary focus:ring-secondary" type="checkbox">
+<span class="text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Real Madrid</span>
+</label>
+<label class="flex items-center gap-sm group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline text-secondary focus:ring-secondary" type="checkbox">
+<span class="text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Arsenal FC</span>
+</label>
+<label class="flex items-center gap-sm group cursor-pointer">
+<input class="w-5 h-5 rounded border-outline text-secondary focus:ring-secondary" type="checkbox">
+<span class="text-body-md text-on-surface-variant group-hover:text-primary transition-colors">AC Milan</span>
+</label>
+</div>
+</div>
+<!-- Size Filter (Chips) -->
+<div class="space-y-sm">
+<h3 class="text-label-md font-label-md font-bold uppercase tracking-widest text-primary">Size</h3>
+<div class="flex flex-wrap gap-xs">
+<button class="px-md py-xs border border-outline text-label-md font-label-md rounded hover:border-primary transition-all">S</button>
+<button class="px-md py-xs bg-primary text-on-primary text-label-md font-label-md rounded shadow-sm">M</button>
+<button class="px-md py-xs border border-outline text-label-md font-label-md rounded hover:border-primary transition-all">L</button>
+<button class="px-md py-xs border border-outline text-label-md font-label-md rounded hover:border-primary transition-all">XL</button>
+<button class="px-md py-xs border border-outline text-label-md font-label-md rounded hover:border-primary transition-all">XXL</button>
+</div>
+</div>
+<!-- Price Range -->
+<div class="space-y-sm">
+<h3 class="text-label-md font-label-md font-bold uppercase tracking-widest text-primary">Price Range</h3>
+<div class="px-xs">
+<input class="w-full accent-secondary" max="200" min="0" type="range" value="120">
+<div class="flex justify-between mt-xs text-label-sm font-label-sm text-on-surface-variant">
+<span class="">$0</span>
+<span class="">$120</span>
+</div>
+</div>
+</div>
+<button class="w-full py-sm bg-secondary text-on-secondary font-bold rounded-lg hover:opacity-90 transition-opacity">Apply Filters</button>
+</div>
+</aside>
+<!-- Main Content Grid -->
+<section class="flex-grow">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Jersey Card 1 -->
+<div class="jersey-card group relative bg-surface-container-lowest overflow-hidden transition-all duration-300">
+<div class="aspect-[3/4] bg-surface-variant relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional product shot of a 2024 Manchester City home jersey in classic sky blue with white accents. The jersey is displayed on a minimalist grey background with studio lighting that emphasizes the breathable fabric texture. High-end athletic fashion photography style for a premium retail website." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAba4ehmeDyDstjzNmkddyMdOGFTpJEZ4lE1UxG3asnD4ViNEQCXJdcPOIutU6Kj4nUSqva02599IqlosoZkeBCCzqoqild2ZV1RkZBJL8OG7CYpx94KOY2P8vcriYFJ5bDr_qPvF1Wf3o0GhYD7UlViRd7y3oGV5yPtrBZtVxzbqmiE37QFe4HP7Q9Bz8D2ELg4IgB9bGyn82In5Gy2tDvvLjZtOi409W849hWddQDZrtFxSPcR6CuTLqIX8aOhB6ktmo6rDbOxUk">
+<span class="absolute top-sm left-sm bg-primary text-on-primary text-label-sm font-label-sm px-base py-[2px] uppercase">New Arrival</span>
+<button class="favorite-btn absolute top-sm right-sm w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary opacity-0 hover:text-secondary transition-all shadow-sm">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md space-y-xs">
+<p class="text-label-sm font-label-sm text-secondary uppercase font-bold tracking-wider">Manchester City</p>
+<h3 class="text-headline-sm font-headline-sm text-primary leading-tight">24/25 Home Authentic Kit</h3>
+<div class="flex justify-between items-center pt-xs">
+<span class="text-body-lg font-bold text-primary">$140.00</span>
+<div class="flex gap-1">
+<div class="w-3 h-3 rounded-full bg-blue-400 border border-outline-variant"></div>
+<div class="w-3 h-3 rounded-full bg-white border border-outline-variant"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Jersey Card 2 -->
+<div class="jersey-card group relative bg-surface-container-lowest overflow-hidden transition-all duration-300">
+<div class="aspect-[3/4] bg-surface-variant relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sleek black Real Madrid away jersey with subtle metallic silver detailing and the iconic crest. The jersey is presented in a high-contrast athletic studio setting with dramatic shadows that highlight the aerodynamic fit. Minimalist minimalist-athletic aesthetic using a professional monochromatic palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMAwlGWv77A_Rmi45m0pCcmcbTOvAG5JFnDweODF9NYAoVm_wYnyPEO27A4I_Xj7o7jJPYl_k5uG2Gsbo4cwz0GcojPh16IrWBRLgBxCpy8rZGN87bRfRPRt54xio1OGw6CeC5sFX439zenTyfYzXQCVDXXf40_eGJPHFCEzgFSqd9oKkfMGLWImwK6_HhFP_9-4LfMsC3UPDWHv4VRdATAjF2FUKUg40uSaYSuRQnhwwluyA4n0gON0KX0AWtCIwYo5VG9SAxl_w">
+<button class="favorite-btn absolute top-sm right-sm w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary opacity-0 hover:text-secondary transition-all shadow-sm">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md space-y-xs">
+<p class="text-label-sm font-label-sm text-secondary uppercase font-bold tracking-wider">Real Madrid</p>
+<h3 class="text-headline-sm font-headline-sm text-primary leading-tight">24/25 Away Performance Kit</h3>
+<div class="flex justify-between items-center pt-xs">
+<span class="text-body-lg font-bold text-primary">$135.00</span>
+<div class="flex gap-1">
+<div class="w-3 h-3 rounded-full bg-black border border-outline-variant"></div>
+<div class="w-3 h-3 rounded-full bg-gray-400 border border-outline-variant"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Jersey Card 3 -->
+<div class="jersey-card group relative bg-surface-container-lowest overflow-hidden transition-all duration-300">
+<div class="aspect-[3/4] bg-surface-variant relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A vibrant Arsenal FC home kit in classic red and white. The jersey is displayed on a clean ice-gray studio background with bright, even lighting. The fabric's moisture-wicking technology and embossed details are visible. Professional sportswear product photography for an elite football shop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw6xFGuqzLrFDvoMW39JDkzyIcq4b55iMphmd_QjNkNR65xk0nQND0AKnBzVhZ8Ms64l1n1H6_LasEEm1Kb_C_jaoLuyo2vXNBYI2QFVSkA6uZBWfvzphSasju4lsduU20kPnNW6P6v1_Kt5VQAjl8Lx61kCULGgm7i9pFPLqqKM04s3a00hOzHvSH2_xFPtLpMq-fGoSEM_MjXsGXLaruvlt2DF4Ne1-A_J1sgZqJP8LwzNuiHajpTt4tMwjJ5kAJHLKqpnNIjy8">
+<span class="absolute top-sm left-sm bg-secondary text-on-secondary text-label-sm font-label-sm px-base py-[2px] uppercase">Sale</span>
+<button class="favorite-btn absolute top-sm right-sm w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary opacity-0 hover:text-secondary transition-all shadow-sm">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md space-y-xs">
+<p class="text-label-sm font-label-sm text-secondary uppercase font-bold tracking-wider">Arsenal FC</p>
+<h3 class="text-headline-sm font-headline-sm text-primary leading-tight">23/24 Home Stadium Jersey</h3>
+<div class="flex justify-between items-center pt-xs">
+<span class="text-body-lg font-bold text-primary">$85.00</span>
+<span class="text-label-sm font-label-sm line-through text-on-surface-variant">$110.00</span>
+</div>
+</div>
+</div>
+<!-- Jersey Card 4 -->
+<div class="jersey-card group relative bg-surface-container-lowest overflow-hidden transition-all duration-300">
+<div class="aspect-[3/4] bg-surface-variant relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="AC Milan home jersey with iconic red and black vertical stripes. The image is a sharp, detailed product shot on a minimalist white background. Soft shadows and high-key lighting create a professional e-commerce feel. The texture of the high-performance mesh fabric is prominently showcased." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLqAzLbhXoWg-4Jl5wOVofr5rVsTjhAW0xn2BRlb6-M8qaKGmmrFs-4Mn1ytBPHggdVn6n_dcl83R69bbFOQoArAkhb2xk7F3KiCBhAOTUvaf5mWSstM4HOgH7L_vekeMCUAcyrtr6JJZu60-DDjIDNqNEHwbZRgmJSLM1ZeAzxq8tQDFkfSgRPh04rLYEC-qfO-ek42c9XcLoFq7pV38A7U6A5raTKLcRiCW6CAL6qUBQxDGP6pO93H5Ht_do8QE78hBZJvKrwco">
+<button class="favorite-btn absolute top-sm right-sm w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary opacity-0 hover:text-secondary transition-all shadow-sm">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md space-y-xs">
+<p class="text-label-sm font-label-sm text-secondary uppercase font-bold tracking-wider">AC Milan</p>
+<h3 class="text-headline-sm font-headline-sm text-primary leading-tight">24/25 Rossoneri Home Kit</h3>
+<div class="flex justify-between items-center pt-xs">
+<span class="text-body-lg font-bold text-primary">$145.00</span>
+<div class="flex gap-1">
+<div class="w-3 h-3 rounded-full bg-red-700 border border-outline-variant"></div>
+<div class="w-3 h-3 rounded-full bg-black border border-outline-variant"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Jersey Card 5 -->
+<div class="jersey-card group relative bg-surface-container-lowest overflow-hidden transition-all duration-300">
+<div class="aspect-[3/4] bg-surface-variant relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean white England national team kit with subtle blue trims. High-end athletic fashion photography in a minimalist studio. The jersey is perfectly centered against a neutral backdrop, with bright, professional lighting emphasizing its premium build and fabric quality. Minimalist-Athletic visual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwulWJWbXu4Ekfjst6WFAmHstU_Dwy3v7PJ7fCatdw0tivIuHNVyE-WBxCPI6-9R_YPuty42hgOfGwqqL78y1zlnJSPx36GedSeds1j65SQyfgl6kTy0BtQlooAZIGQnPkc4ZY_Ea9yeBrEKGAYpqxt6XXjrMc0YvF8dWu1T9Eq-Epv_K_LtOfeFVXBEtOxMy-vqyWXn547FAVzheR6wlaRtTyK5WpFKgiHWzG4XCa5yJrIc1zwpNGj4knk5xemqmBDZEng4xedrs">
+<button class="favorite-btn absolute top-sm right-sm w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary opacity-0 hover:text-secondary transition-all shadow-sm">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md space-y-xs">
+<p class="text-label-sm font-label-sm text-secondary uppercase font-bold tracking-wider">England</p>
+<h3 class="text-headline-sm font-headline-sm text-primary leading-tight">Euro 2024 Home Vapor Kit</h3>
+<div class="flex justify-between items-center pt-xs">
+<span class="text-body-lg font-bold text-primary">$150.00</span>
+</div>
+</div>
+</div>
+<!-- Jersey Card 6 -->
+<div class="jersey-card group relative bg-surface-container-lowest overflow-hidden transition-all duration-300">
+<div class="aspect-[3/4] bg-surface-variant relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A bold yellow and blue Inter Milan third jersey. The shot is captured in a high-tech athletic studio with vibrant color accents and sharp lighting. The design reflects energy and precision, using a professional sports photography approach on an ice-gray background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0q1yGI2Xsy9ca02ZadZOLuhiRDpSK9kWBOANXDmULNSS-Nwy4HG6WIAnpH-ugmBjdq4NBO0m4r-oHPctfZLV2XExPPrl1mecrZ4yK3oWdpWOFnf929St37ap794dY9zZKr-HO1JUbJaoOhZ5HHkQOdT-YxP8KJymOvlLA8EhdT4Nu12Q8iBR34kf50UI8KX4oq7vN5egnJwJtp96yg62TKOixXQQNzES6xif9MgJmT6pD2MQsVgx0_i9oZq4LBIX1345XNL6rE5o">
+<span class="absolute top-sm left-sm bg-inverse-surface text-surface text-label-sm font-label-sm px-base py-[2px] uppercase">Limited</span>
+<button class="favorite-btn absolute top-sm right-sm w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary opacity-0 hover:text-secondary transition-all shadow-sm">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-md space-y-xs">
+<p class="text-label-sm font-label-sm text-secondary uppercase font-bold tracking-wider">Inter Milan</p>
+<h3 class="text-headline-sm font-headline-sm text-primary leading-tight">24/25 Third Elite Edition</h3>
+<div class="flex justify-between items-center pt-xs">
+<span class="text-body-lg font-bold text-primary">$160.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More Button -->
+<div class="mt-xl flex justify-center pb-xl">
+<button class="px-xl py-md border-2 border-primary text-primary font-bold uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all active:scale-95 flex items-center gap-sm">
+                        Load More Designs
+                        <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md px-margin-mobile md:px-margin-desktop py-lg max-w-7xl mx-auto">
+<div class="space-y-md">
+<h4 class="text-headline-sm font-headline-sm text-on-surface">PITCH RETAIL</h4>
+<p class="text-body-md text-on-surface-variant">The world's premier destination for authentic performance kits and athletic gear. Engineered for the pitch, designed for the streets.</p>
+</div>
+<div class="space-y-base">
+<h5 class="text-label-md font-label-md font-bold uppercase text-primary">Shopping</h5>
+<nav class="flex flex-col gap-xs">
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Shipping Policy</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Returns &amp; Exchanges</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Size Guide</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Order Tracking</a>
+</nav>
+</div>
+<div class="space-y-base">
+<h5 class="text-label-md font-label-md font-bold uppercase text-primary">Company</h5>
+<nav class="flex flex-col gap-xs">
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Terms of Service</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Privacy Policy</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">About Us</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Contact Us</a>
+</nav>
+</div>
+<div class="space-y-base">
+<h5 class="text-label-md font-label-md font-bold uppercase text-primary">Newsletter</h5>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Join the elite for exclusive kit releases and drops.</p>
+<div class="flex gap-xs mt-sm">
+<input class="bg-surface-container-low border-none rounded px-base py-xs text-label-sm w-full focus:ring-1 focus:ring-primary" placeholder="Email Address" type="email">
+<button class="bg-primary text-on-primary px-md py-xs rounded font-bold text-label-sm hover:opacity-90">JOIN</button>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant px-margin-mobile md:px-margin-desktop py-md max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-base">
+<p class="text-label-sm font-label-sm text-on-surface-variant">© 2024 Pitch Retail Performance. All Rights Reserved.</p>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">face_nod</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">share</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">sports_soccer</span>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+                button.style.opacity = '0.8';
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+                button.style.opacity = '1';
+            });
+            button.addEventListener('mouseleave', () => {
+                button.classList.remove('scale-95');
+                button.style.opacity = '1';
+            });
+        });
+
+        // Toggle Favorite Icon
+        document.querySelectorAll('.favorite-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const icon = this.querySelector('.material-symbols-outlined');
+                if (icon.style.fontVariationSettings.includes("'FILL' 1")) {
+                    icon.style.fontVariationSettings = "'FILL' 0";
+                    this.classList.remove('text-secondary');
+                    this.classList.add('text-primary');
+                } else {
+                    icon.style.fontVariationSettings = "'FILL' 1";
+                    this.classList.add('text-secondary');
+                    this.classList.remove('text-primary');
+                }
+            });
+        });
+
+        // Dynamic Loading Simulation
+        const loadMoreBtn = document.querySelector('.mt-xl button');
+        loadMoreBtn.addEventListener('click', () => {
+            loadMoreBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Loading Kits...';
+            setTimeout(() => {
+                loadMoreBtn.innerHTML = 'Load More Designs <span class="material-symbols-outlined">expand_more</span>';
+            }, 1500);
+        });
+    </script>
+
+
+</body></html>
