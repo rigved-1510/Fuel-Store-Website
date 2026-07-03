@@ -61,12 +61,12 @@ export function AboutUs() {
             </div>
           </div>
 
-          {/* Image — appears above text on mobile, right column on desktop */}
-          <div className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 order-first lg:order-last">
+          {/* Right Column: Image */}
+          <div className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
             <img
               src={storeImg}
               alt="Fuel Store Front"
-              className="w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[450px] object-cover transform group-hover:scale-105 transition-transform duration-700"
+              className="w-full h-[350px] md:h-[450px] object-cover transform group-hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent pointer-events-none" />
           </div>

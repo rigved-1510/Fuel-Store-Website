@@ -84,7 +84,7 @@ export function Navbar() {
           <div className="flex items-center gap-base">
             <button
               onClick={() => setIsOpen(true)}
-              className={`p-2 active:opacity-80 active:scale-95 transition-all lg:hidden focus:outline-none ${textClass}`}
+              className={`p-2 active:opacity-80 active:scale-95 transition-all md:hidden focus:outline-none ${textClass}`}
               aria-label="Open menu"
             >
               <Icon name="menu" className="text-[24px]" />
@@ -98,7 +98,7 @@ export function Navbar() {
           </div>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-lg">
+          <div className="hidden md:flex items-center gap-lg">
             {navLinks.map((link) => {
               const active = isLinkActive(link.to);
               return (
@@ -179,14 +179,14 @@ export function Navbar() {
       {/* Mobile Drawer Backdrop */}
       {isOpen ? (
         <div
-          className="fixed inset-0 z-50 bg-black/55 backdrop-blur-sm transition-opacity lg:hidden"
+          className="fixed inset-0 z-50 bg-black/55 backdrop-blur-sm transition-opacity md:hidden"
           onClick={() => setIsOpen(false)}
         />
       ) : null}
 
       {/* Mobile Drawer Panel */}
       <div
-        className={`fixed top-0 left-0 bottom-0 z-50 w-72 bg-surface max-w-xs shadow-2xl transition-transform duration-300 transform lg:hidden ${
+        className={`fixed top-0 left-0 bottom-0 z-50 w-72 bg-surface max-w-xs shadow-2xl transition-transform duration-300 transform md:hidden ${
           isOpen ? 'translate-x-0' : '-translate-x-0 -left-72'
         }`}
       >
