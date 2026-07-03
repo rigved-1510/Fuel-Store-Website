@@ -18,6 +18,8 @@ import orderRoutes from './routes/orderRoutes.js';
 
 const app = express();
 
+app.set('trust proxy', 1);
+
 // ─── SECURITY HEADERS ────────────────────────────────────────────────
 app.use(
   helmet({
