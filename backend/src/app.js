@@ -32,9 +32,7 @@ app.use(
 // ─── CORS ────────────────────────────────────────────────────────────
 app.use(cors({
   origin: [
-    'http://localhost:5173',
-    'http://localhost:5174',
-    'https://fuel-store-website.vercel.app'
+    process.env.CLIENT_URL
   ],
   credentials: true,
 }));
