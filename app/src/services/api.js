@@ -1,5 +1,7 @@
 const API_BASE = import.meta.env.VITE_API_URL;
 
+console.log("API_BASE =", API_BASE);
+
 export async function apiFetch(endpoint, options = {}) {
   const token = localStorage.getItem('fuel_store_token');
   
