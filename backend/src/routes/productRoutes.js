@@ -8,7 +8,8 @@ import {
   getProductBySlug,
   createProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
+  activateProduct
 } from '../controllers/productController.js';
 
 const router = Router();
@@ -111,6 +112,14 @@ router.delete(
   verifyToken,
   isAdmin,
   deleteProduct
+);
+
+// Restore (re-activate) a soft-deleted product — admin only
+router.patch(
+  '/:id/activate',
+  verifyToken,
+  isAdmin,
+  activateProduct
 );
 
 export default router;

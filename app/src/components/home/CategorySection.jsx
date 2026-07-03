@@ -15,7 +15,7 @@ export function CategorySection() {
       <div className="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
         {/* Header */}
         <div className="flex items-center justify-between mb-md">
-          <h3 className="text-headline-md font-headline-md text-on-surface">Global Elite</h3>
+          <h3 className="text-headline-md font-headline-md text-on-surface">Categories</h3>
           <button
             onClick={() => navigate('/products')}
             className="text-secondary hover:text-secondary-container font-bold text-label-md flex items-center gap-xs focus:outline-none transition-colors"

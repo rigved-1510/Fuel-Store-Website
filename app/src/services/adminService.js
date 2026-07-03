@@ -28,6 +28,13 @@ export async function deleteProduct(id) {
   return res;
 }
 
+export async function activateProduct(id) {
+  const res = await apiFetch(`/products/${id}/activate`, {
+    method: 'PATCH'
+  });
+  return res;
+}
+
 export async function getAdminOrders(status = '') {
   const query = status ? `?status=${status}` : '';
   const res = await apiFetch(`/orders${query}`);

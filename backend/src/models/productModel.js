@@ -372,10 +372,19 @@ export const ProductModel = {
   },
 
   /**
-   * Delete a product by ID.
+   * Soft-delete a product by setting is_active = FALSE.
+   * The row is never physically removed so order_items references stay intact.
    */
   async delete(id) {
-    const [result] = await pool.execute('DELETE FROM products WHERE id = ?', [id]);
+    const [result] = await pool.execute('UPDATE products SET is_active = FALSE WHERE id = ?', [id]);
+    return result.affectedRows > 0;
+  },
+
+  /**
+   * Restore a previously deactivated product by setting is_active = TRUE.
+   */
+  async activate(id) {
+    const [result] = await pool.execute('UPDATE products SET is_active = TRUE WHERE id = ?', [id]);
     return result.affectedRows > 0;
   }
 };

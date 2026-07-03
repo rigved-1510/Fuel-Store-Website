@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getAdminProducts, deleteProduct } from '../../services/adminService';
+import { getAdminProducts, deleteProduct, activateProduct } from '../../services/adminService';
 import { getImageUrl } from '../../utils/getImageUrl';
 
 export function AdminProductsPage() {
@@ -9,6 +9,7 @@ export function AdminProductsPage() {
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
+  const [statusFilter, setStatusFilter] = useState('all'); // 'all' | 'active' | 'inactive'
 
   useEffect(() => {
     loadProducts();
@@ -26,26 +27,46 @@ export function AdminProductsPage() {
     }
   }
 
-  async function handleDelete(id, name) {
-    if (!window.confirm(`Are you sure you want to delete product "${name}"?`)) return;
+  async function handleDeactivate(id, name) {
+    if (!window.confirm(`Deactivate "${name}"? It will be hidden from customers but remain in the system.`)) return;
 
     try {
       await deleteProduct(id);
-      setProducts(prev => prev.filter(p => p.id !== id));
+      // Update in-place so the admin can see the product and restore it
+      setProducts(prev => prev.map(p => p.id === id ? { ...p, isActive: false } : p));
     } catch (err) {
-      alert(`Delete failed: ${err.message}`);
+      alert(`Deactivate failed: ${err.message}`);
+    }
+  }
+
+  async function handleActivate(id, name) {
+    if (!window.confirm(`Restore "${name}"? It will become visible to customers again.`)) return;
+
+    try {
+      await activateProduct(id);
+      // Update in-place
+      setProducts(prev => prev.map(p => p.id === id ? { ...p, isActive: true } : p));
+    } catch (err) {
+      alert(`Restore failed: ${err.message}`);
     }
   }
 
   const filteredProducts = products.filter(p => {
-    const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          p.club.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          p.slug.toLowerCase().includes(searchTerm.toLowerCase());
-    
-    const matchesCategory = categoryFilter === 'all' || 
-                            p.category.toLowerCase() === categoryFilter.toLowerCase();
-    
-    return matchesSearch && matchesCategory;
+    const matchesSearch =
+      p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      p.club.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      p.slug.toLowerCase().includes(searchTerm.toLowerCase());
+
+    const matchesCategory =
+      categoryFilter === 'all' ||
+      p.category.toLowerCase() === categoryFilter.toLowerCase();
+
+    const matchesStatus =
+      statusFilter === 'all' ||
+      (statusFilter === 'active' && p.isActive) ||
+      (statusFilter === 'inactive' && !p.isActive);
+
+    return matchesSearch && matchesCategory && matchesStatus;
   });
 
   if (loading) {
@@ -90,8 +111,9 @@ export function AdminProductsPage() {
             className="w-full pl-11 pr-4 py-3 bg-slate-950 border border-slate-800 focus:border-amber-500 text-slate-200 placeholder-slate-500 rounded-xl outline-none text-sm transition-all"
           />
         </div>
+
         {/* Category Filter */}
-        <div className="w-full md:w-56 relative flex items-center">
+        <div className="w-full md:w-52 relative flex items-center">
           <span className="material-icons text-slate-500 absolute left-4 text-lg">filter_alt</span>
           <select
             value={categoryFilter}
@@ -104,6 +126,21 @@ export function AdminProductsPage() {
                 {cat.toUpperCase()}
               </option>
             ))}
+          </select>
+          <span className="material-icons text-slate-500 absolute right-4 text-base pointer-events-none">expand_more</span>
+        </div>
+
+        {/* Status Filter */}
+        <div className="w-full md:w-44 relative flex items-center">
+          <span className="material-icons text-slate-500 absolute left-4 text-lg">toggle_on</span>
+          <select
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+            className="w-full pl-11 pr-8 py-3 bg-slate-950 border border-slate-800 focus:border-amber-500 text-slate-200 rounded-xl outline-none text-sm transition-all appearance-none cursor-pointer"
+          >
+            <option value="all">All Status</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
           </select>
           <span className="material-icons text-slate-500 absolute right-4 text-base pointer-events-none">expand_more</span>
         </div>
@@ -134,9 +171,9 @@ export function AdminProductsPage() {
                 {filteredProducts.map((p) => {
                   // Resolve total stock
                   const totalStock = Object.values(p.stock || {}).reduce((sum, val) => sum + val, 0);
-                  
+
                   return (
-                    <tr key={p.id} className="hover:bg-slate-800/20 transition-all">
+                    <tr key={p.id} className={`hover:bg-slate-800/20 transition-all ${!p.isActive ? 'opacity-60' : ''}`}>
                       {/* Name / Slug */}
                       <td className="py-4 px-6">
                         <div className="flex items-center gap-4">
@@ -208,13 +245,26 @@ export function AdminProductsPage() {
                           >
                             <span className="material-icons text-base">edit</span>
                           </Link>
-                          <button
-                            onClick={() => handleDelete(p.id, p.name)}
-                            className="p-2 rounded-lg hover:bg-red-500/10 text-slate-400 hover:text-red-400 transition"
-                            title="Delete"
-                          >
-                            <span className="material-icons text-base">delete</span>
-                          </button>
+
+                          {p.isActive ? (
+                            /* Deactivate button — shown for active products */
+                            <button
+                              onClick={() => handleDeactivate(p.id, p.name)}
+                              className="p-2 rounded-lg hover:bg-red-500/10 text-slate-400 hover:text-red-400 transition"
+                              title="Deactivate"
+                            >
+                              <span className="material-icons text-base">block</span>
+                            </button>
+                          ) : (
+                            /* Restore button — shown for inactive products */
+                            <button
+                              onClick={() => handleActivate(p.id, p.name)}
+                              className="p-2 rounded-lg hover:bg-emerald-500/10 text-slate-400 hover:text-emerald-400 transition"
+                              title="Restore / Activate"
+                            >
+                              <span className="material-icons text-base">restore</span>
+                            </button>
+                          )}
                         </div>
                       </td>
                     </tr>

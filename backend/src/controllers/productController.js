@@ -24,7 +24,22 @@ export const getAllProducts = catchAsync(async (req, res) => {
 export const getProductBySlug = catchAsync(async (req, res) => {
   const { slug } = req.params;
 
-  const product = await ProductModel.findBySlug(slug);
+  // Fetch the product regardless of active state first (to detect 404 vs inactive)
+  const [rows] = await (await import('../config/db.js')).default.execute(
+    'SELECT id, is_active FROM products WHERE slug = ?',
+    [slug]
+  );
+
+  if (rows.length === 0) {
+    throw new AppError('Product not found.', 404);
+  }
+
+  // For customers: inactive products are invisible (return 404)
+  if (!rows[0].is_active) {
+    throw new AppError('Product not found.', 404);
+  }
+
+  const product = await ProductModel.findById(rows[0].id);
   if (!product) {
     throw new AppError('Product not found.', 404);
   }
@@ -168,15 +183,26 @@ export const deleteProduct = catchAsync(async (req, res) => {
     throw new AppError('Product not found.', 404);
   }
 
-  // Clean up physical images from disk
-  for (const img of product.images) {
-    if (img.startsWith('uploads/')) {
-      await ImageService.deleteImage(img);
-    }
-  }
-
-  // Delete product row (cascades sizes and image urls in DB)
+  // Soft-delete: set is_active = FALSE instead of removing the row.
+  // This preserves foreign key references in order_items.
   await ProductModel.delete(productId);
 
-  return sendSuccess(res, 200, 'Product deleted successfully.');
+  return sendSuccess(res, 200, 'Product deactivated successfully.');
+});
+
+export const activateProduct = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const productId = parseInt(id, 10);
+
+  // findAll with isActive: undefined so we can find even inactive products
+  const products = await ProductModel.findAll({ isActive: undefined });
+  const product = products.find(p => p.id === productId);
+
+  if (!product) {
+    throw new AppError('Product not found.', 404);
+  }
+
+  await ProductModel.activate(productId);
+
+  return sendSuccess(res, 200, 'Product activated successfully.');
 });
