@@ -24,7 +24,8 @@ export async function testConnection() {
     logger.info(`MySQL connected — ${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`);
     connection.release();
   } catch (error) {
-    logger.error('MySQL connection failed:', error.message);
+    console.error(error);
+    logger.error('MySQL connection failed:', error);
     throw error;
   }
 }
