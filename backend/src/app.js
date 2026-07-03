@@ -16,6 +16,9 @@ import wishlistRoutes from './routes/wishlistRoutes.js';
 import addressRoutes from './routes/addressRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 
+import path from 'path';
+import { fileURLToPath } from 'url';
+
 const app = express();
 
 app.set('trust proxy', 1);
@@ -65,7 +68,13 @@ app.get(
 );
 
 // ─── STATIC FILES (uploaded images) ──────────────────────────────────
-app.use('/uploads', express.static('uploads'));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(
+  '/uploads',
+  express.static(path.join(__dirname, '../uploads'))
+);
 
 // ─── HEALTH CHECK ────────────────────────────────────────────────────
 app.get('/api/health', (_req, res) => {

@@ -134,9 +134,7 @@ export const updateProduct = catchAsync(async (req, res) => {
   if (req.files && req.files.length > 0) {
     // Delete old images from disk if they were local paths
     for (const oldImg of existingProduct.images) {
-      if (oldImg.startsWith('uploads/')) {
-        await ImageService.deleteImage(oldImg);
-      }
+      await ImageService.deleteImage(oldImg);
     }
     imagePaths = await ImageService.uploadImages(req.files);
   } else if (req.body.images !== undefined) {
