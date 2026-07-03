@@ -1,4 +1,6 @@
 import pool from '../config/db.js';
+import bcrypt from 'bcryptjs';
+import crypto from 'crypto';
 
 /**
  * User model — all database queries related to the users table.
@@ -57,6 +59,12 @@ export const UserModel = {
     googleId,
     avatar
   }) {
+    // Generate a random password hash for Google users
+    const passwordHash = await bcrypt.hash(
+      crypto.randomUUID(),
+      10
+    );
+
     const [result] = await pool.execute(
       `
       INSERT INTO users
@@ -64,19 +72,20 @@ export const UserModel = {
         first_name,
         last_name,
         email,
+        password_hash,
         google_id,
         avatar,
         provider
       )
-      VALUES (?, ?, ?, ?, ?, 'google')
+      VALUES (?, ?, ?, ?, ?, ?, 'google')
       `,
       [
         firstName,
         lastName,
         email,
+        passwordHash,
         googleId,
-        avatar,
-        'google'
+        avatar
       ]
     );
 
