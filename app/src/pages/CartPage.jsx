@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { getAddresses, createAddress } from '../services/addressService';
-import { placeOrder } from '../services/orderService';
+import { createRazorpayOrder, verifyRazorpayPayment } from '../services/paymentService';
 import { Icon } from '../components/ui/Icon';
 import { Button } from '../components/ui/Button';
 import { formatCurrency } from '../utils/formatCurrency';
@@ -22,7 +22,7 @@ export function CartPage() {
     refreshCart
   } = useCart();
   
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user } = useAuth();
   const navigate = useNavigate();
   
   const [checkoutSuccess, setCheckoutSuccess] = useState(false);
@@ -38,8 +38,8 @@ export function CartPage() {
     fullName: '', phone: '', addressLine1: '', city: '', state: '', postalCode: '', country: 'India'
   });
 
-  // Payment state
-  const [paymentMethod, setPaymentMethod] = useState('COD'); // Default COD
+  // Payment state — UPI is the only active method; COD is disabled
+  const [paymentMethod, setPaymentMethod] = useState('UPI');
 
   // Fetch addresses when entering checkout step
   useEffect(() => {
@@ -77,6 +77,22 @@ export function CartPage() {
     }
   };
 
+  // ── Dynamically load the Razorpay checkout script ──────────────────────
+  const loadRazorpayScript = () =>
+    new Promise((resolve) => {
+      if (document.getElementById('razorpay-script')) {
+        resolve(true);
+        return;
+      }
+      const script = document.createElement('script');
+      script.id = 'razorpay-script';
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
+
+  // ── Handle Place Order (Razorpay flow) ───────────────────────────────────
   const handlePlaceOrder = async () => {
     if (!selectedAddressId) {
       setError('Please select a shipping address.');
@@ -84,14 +100,79 @@ export function CartPage() {
     }
     setIsCheckingOut(true);
     setError('');
+
     try {
-      await placeOrder({ addressId: selectedAddressId, paymentMethod });
-      setCheckoutSuccess(true);
-      await clearCart(); // Clean up context state
-      refreshCart(); // Refresh cart from server (should be empty now)
+      // Step 1 — Ask backend to create a Razorpay order (totals computed from DB)
+      const { razorpayOrderId, amount, currency, keyId } = await createRazorpayOrder(selectedAddressId);
+
+      // Step 2 — Load Razorpay checkout.js if not already loaded
+      const scriptLoaded = await loadRazorpayScript();
+      if (!scriptLoaded) {
+        setError('Failed to load payment gateway. Please check your internet connection and try again.');
+        setIsCheckingOut(false);
+        return;
+      }
+
+      // Step 3 — Open Razorpay checkout popup
+      const options = {
+        key: keyId || import.meta.env.VITE_RAZORPAY_KEY_ID,
+        amount,
+        currency,
+        name: 'Fuel Store',
+        description: 'Football Jersey Order',
+        order_id: razorpayOrderId,
+        prefill: {
+          name: user ? `${user.first_name} ${user.last_name}` : '',
+          email: user?.email || '',
+        },
+        theme: { color: '#e85d04' },
+
+        // Step 4a — Payment successful: verify with backend
+        handler: async (response) => {
+          try {
+            await verifyRazorpayPayment({
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_signature: response.razorpay_signature,
+              addressId: selectedAddressId,
+            });
+            // Verification passed — order is now in DB, cart cleared, stock reduced
+            await refreshCart();
+            setCheckoutSuccess(true);
+          } catch (verifyErr) {
+            setError(
+              verifyErr.message ||
+              'Payment verification failed. Please contact support if your amount was debited.'
+            );
+          } finally {
+            setIsCheckingOut(false);
+          }
+        },
+
+        // Step 4b — User dismissed the popup
+        modal: {
+          ondismiss: () => {
+            setError('Payment was cancelled. Your cart is intact — you can try again.');
+            setIsCheckingOut(false);
+          },
+        },
+      };
+
+      const rzp = new window.Razorpay(options);
+
+      // Handle payment errors from Razorpay (e.g. bank declines)
+      rzp.on('payment.failed', (response) => {
+        setError(
+          response.error?.description ||
+          'Payment failed. Please try again with a different payment method.'
+        );
+        setIsCheckingOut(false);
+      });
+
+      rzp.open();
     } catch (err) {
-      setError(err.message || 'Failed to place order.');
-    } finally {
+      // createRazorpayOrder failed (network, auth, empty cart, etc.)
+      setError(err.message || 'Failed to initiate payment. Please try again.');
       setIsCheckingOut(false);
     }
   };
@@ -288,22 +369,45 @@ export function CartPage() {
               <div className="flex justify-between items-center mb-md border-b border-outline-variant/30 pb-xs">
                 <h3 className="font-headline-sm text-headline-sm uppercase text-primary">2. Payment Method</h3>
               </div>
-              
+
               <div className="space-y-sm">
-                {['COD', 'UPI'].map(method => (
-                  <div 
-                    key={method}
-                    onClick={() => setPaymentMethod(method)}
-                    className={`p-sm border rounded-lg cursor-pointer transition-colors flex items-center gap-md ${paymentMethod === method ? 'border-secondary bg-secondary/5' : 'border-outline-variant/50 hover:border-outline-variant'}`}
-                  >
-                    <Icon name={method === 'COD' ? 'local_shipping' : 'qr_code'} className="text-[24px] text-primary" />
-                    <div>
-                      <p className="font-bold text-on-surface">{method === 'COD' ? 'Cash on Delivery (COD)' : 'UPI (Google Pay, PhonePe, Paytm)'}</p>
-                      <p className="text-label-sm text-on-surface-variant">{method === 'COD' ? 'Pay when your order arrives.' : 'Scan QR code after order placement.'}</p>
-                    </div>
-                    {paymentMethod === method && <Icon name="check_circle" className="text-secondary ml-auto" />}
+
+                {/* ── UPI / Razorpay — the only active option ── */}
+                <div
+                  onClick={() => setPaymentMethod('UPI')}
+                  className={`p-sm border rounded-lg cursor-pointer transition-colors flex items-center gap-md ${
+                    paymentMethod === 'UPI'
+                      ? 'border-secondary bg-secondary/5'
+                      : 'border-outline-variant/50 hover:border-outline-variant'
+                  }`}
+                >
+                  <Icon name="qr_code" className="text-[24px] text-primary" />
+                  <div className="flex-1">
+                    <p className="font-bold text-on-surface">UPI / Online Payment</p>
+                    <p className="text-label-sm text-on-surface-variant">
+                      Pay securely via UPI, Cards, Net Banking &amp; Wallets — powered by Razorpay.
+                    </p>
                   </div>
-                ))}
+                  {paymentMethod === 'UPI' && <Icon name="check_circle" className="text-secondary ml-auto" />}
+                </div>
+
+                {/* ── Cash on Delivery — disabled ── */}
+                <div
+                  className="p-sm border border-outline-variant/30 rounded-lg flex items-center gap-md opacity-50 cursor-not-allowed select-none bg-surface-container"
+                  aria-disabled="true"
+                >
+                  <Icon name="local_shipping" className="text-[24px] text-on-surface-variant" />
+                  <div className="flex-1">
+                    <div className="flex items-center gap-sm flex-wrap">
+                      <p className="font-bold text-on-surface-variant">Cash on Delivery (COD)</p>
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-error/15 text-error border border-error/30">
+                        Currently Unavailable
+                      </span>
+                    </div>
+                    <p className="text-label-sm text-on-surface-variant">Pay when your order arrives.</p>
+                  </div>
+                </div>
+
               </div>
             </div>
           )}

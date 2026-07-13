@@ -15,6 +15,8 @@ function formatOrder(o, items = []) {
     discount: parseFloat(o.discount),
     totalAmount: parseFloat(o.total_amount),
     transactionId: o.transaction_id || null,
+    razorpayOrderId: o.razorpay_order_id || null,
+    razorpayPaymentId: o.razorpay_payment_id || null,
     shippingAddress: {
       fullName: o.full_name,
       phone: o.phone,
@@ -59,7 +61,7 @@ export const OrderModel = {
    *  5. Clear the user's cart
    * Rolls back everything on any failure.
    */
-  async placeOrder({ userId, cartId, items, subtotal, shippingCharge, discount, totalAmount, paymentMethod, address }) {
+  async placeOrder({ userId, cartId, items, subtotal, shippingCharge, discount, totalAmount, paymentMethod, paymentStatus = 'pending', razorpayOrderId = null, razorpayPaymentId = null, address }) {
     const conn = await pool.getConnection();
     try {
       await conn.beginTransaction();
@@ -67,12 +69,16 @@ export const OrderModel = {
       // 1. Insert order header
       const [orderResult] = await conn.execute(
         `INSERT INTO orders
-           (user_id, payment_method, subtotal, shipping_charge, discount, total_amount,
+           (user_id, payment_method, payment_status, subtotal, shipping_charge, discount, total_amount,
+            transaction_id, razorpay_order_id, razorpay_payment_id,
             full_name, phone, address_line1, address_line2, city, state, postal_code, country)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
-          userId, paymentMethod,
+          userId, paymentMethod, paymentStatus,
           subtotal, shippingCharge, discount, totalAmount,
+          razorpayPaymentId,       // also stored as transaction_id for admin views
+          razorpayOrderId,
+          razorpayPaymentId,
           address.fullName, address.phone, address.addressLine1,
           address.addressLine2 || null,
           address.city, address.state, address.postalCode, address.country
